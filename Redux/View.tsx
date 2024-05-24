@@ -1,7 +1,6 @@
 import {Button, FlatList, Text, View} from 'react-native';
 import React, {Component} from 'react';
-import {useAppDispatch} from './Reducer';
-import {loading, success} from './Slice';
+import {loading} from './Slice';
 import {connect} from 'react-redux';
 
 const renderFlat = ({item, index}: any) => (

@@ -4,7 +4,7 @@ import {useAppDispatch} from './Reducer';
 import {loading, success} from './Slice';
 import {connect} from 'react-redux';
 
-const renderFlat = ({item, index}) => (
+const renderFlat = ({item, index}: any) => (
   <Text>
     {item.title} {item.id}
   </Text>
@@ -12,8 +12,13 @@ const renderFlat = ({item, index}) => (
 interface Icount {
   count: number;
 }
-class Index extends Component<{}, Icount> {
-  constructor(props: {}) {
+interface Iprops {
+  loading: () => void;
+  data: [];
+  status: string;
+}
+class Index extends Component<Iprops, Icount> {
+  constructor(props: Iprops) {
     super(props);
     this.state = {count: 50};
   }
@@ -22,7 +27,7 @@ class Index extends Component<{}, Icount> {
     console.log(this.props);
   };
   render() {
-    let data = this.props.data
+    let data = this.props.data;
     let status = this.props.status;
     return (
       <View>
@@ -49,7 +54,7 @@ class Index extends Component<{}, Icount> {
     );
   }
 }
-const mapStateToProps = (state: {data: any; status: any}) => {
+const mapStateToProps = (state: {SliceReducer: {data: any; status: any}}) => {
   const data = state.SliceReducer.data;
   const status = state.SliceReducer.status;
   return {

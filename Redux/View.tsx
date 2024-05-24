@@ -45,8 +45,6 @@ class Index extends Component<Iprops, Icount> {
             renderItem={renderFlat}
             onScrollEndDrag={() => {
               this.setState({count: this.state.count + 10});
-              console.log(this.state.count);
-              // data=this.props.data.filter((i,j)=>)
             }}
           />
         )}
